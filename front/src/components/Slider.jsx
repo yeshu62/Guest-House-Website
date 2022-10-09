@@ -4,12 +4,13 @@ import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
-import { Redirect } from 'react-router';
-import {useNavigate} from 'react-router-dom';
+
 import {Link} from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
 import Axios from "axios";
 
+import {useNavigate} from "react-router-dom";
+
+import Book from './Book';
 
 
 function Slider(){
@@ -19,6 +20,15 @@ function Slider(){
     const [Cout,SetCout]=useState('');
     const [NoP,SetNoP]=useState('');
 
+    const [confirm,setConfirm]=useState(false);
+    const navigate = useNavigate();
+
+
+    const submitBooking = (e) => {
+        e.preventDefault();
+        setConfirm(true);
+        navigate('/Book', {state: Cin});
+      };
 
 
     const [show, setShow] = useState(false);
@@ -27,51 +37,47 @@ function Slider(){
     const handleShow = () => setShow(true);
 
 
-    const [redirect, setRedirect] = useState();
-  
+    // const submitBooking = function(){
+    //     Axios.post('http://localhost:3001/home',
+    //     {Cin:Cin, Cout:Cout, NoP:NoP});
 
-
-    const submitBooking = function(){
-        Axios.post('http://localhost:3001/home',
-        {Cin:Cin, Cout:Cout, NoP:NoP});
-
-    }
+    // }
 
     return(
     <div id="slides" class="cover-slides">
     <ul class="slides-container">
         <li class="text-center">
-            <img src="./img/slider-01.jpg" alt=""/>
+        <img src="https://i.ibb.co/k91zQ9m/4.jpg" alt="4" border="0"></img>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="m-b-20"><strong>Hello</strong></h1>
-                        <p class="m-b-40">Something</p>
-                        <p><button class="btn btn-lg btn-circle btn-outline-new-white" onClick={handleShow}>Book Now</button></p>
+                        <h1 class="m-b-20"><strong>Hotel Janakpur Inn</strong></h1>
+                        <p class="m-b-40">Feel like home</p>
+                        <p><button class="btn btn-lg btn-circle btn-outline-new-white" onClick={handleShow}>Request a booking</button></p>
                     </div>
                 </div>
             </div>
         </li>
         <li class="text-center">
-            <img src="./img/slider-02.jpg" alt=""/>
+        <img src="https://i.ibb.co/P9qTp0F/doublebedapp2.jpg" alt="doublebedapp2" border="0"></img>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="m-b-20"><strong>Hello2ndSlide</strong></h1>
-                        <p class="m-b-40">Something</p>
-                        <p><button class="btn btn-lg btn-circle btn-outline-new-white" onClick={handleShow}>Book Now</button></p>
+                        <h1 class="m-b-20"><strong>We’re more than just a room</strong></h1>
+                        <p class="m-b-40">With us, you’re home</p>
+                        <p><button class="btn btn-lg btn-circle btn-outline-new-white" onClick={handleShow}>Request a Booking</button></p>
                     </div>
-                </div>
+                </div>``
             </div>
         </li>
         <li class="text-center">
-            <img src="./img/slider-03.jpg" alt=""/>
+        <img src="https://i.ibb.co/xLrvTRr/2.jpg" alt="2" border="0"></img>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="m-b-20"><strong>Hello3rdSlide</strong></h1>
-                        <p class="m-b-40">Something</p>
-                        <p><a class="btn btn-lg btn-circle btn-outline-new-white" onClick={handleShow}>Book Now</a></p>
+                        <h1 class="m-b-20"><strong>Your pleasure is our principle</strong></h1>
+                        <p class="m-b-40">A warm welcome awaits</p>
+                        <p><a class="btn btn-lg btn-circle btn-outline-new-white" onClick={handleShow}>Request a booking</a></p>
                     </div>
                 </div>
             </div>
@@ -115,11 +121,11 @@ function Slider(){
     }}
   >
     <option value="0">Choose...</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-    <option value="4">Four</option>
-    <option value="5">Five</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
 
   </Form.Control>
   </Col>
@@ -129,7 +135,7 @@ function Slider(){
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Link to='/Book' onClick={() => window.location.href="/Book"}>
+            <Link to='/Book' onClick={() => window.location.href="/Book/"+Cin+"/"+Cout+"/"+NoP}>
             <Button variant="primary" onClick={function(){
                 submitBooking();
             }}>
@@ -141,6 +147,10 @@ function Slider(){
           </Modal.Body>
           
         </Modal>
+
+        <Book data="xx"/>
+
+            
     </div>
 
     );

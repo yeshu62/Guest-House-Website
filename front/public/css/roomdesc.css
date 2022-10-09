@@ -1,0 +1,85 @@
+.roomdesc{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    background-color:wheat;
+}
+
+.container-room{
+    width: 100%;
+    height: 400px;  
+
+    display: flex;
+    margin: auto;
+    padding: 10px;
+    justify-content: center;
+}
+.slideroom{
+    min-width: 10px;
+    width: 50px;
+    height: 100%;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 15px;
+    display: flex;
+    align-items: flex-end;
+    background-size: cover;
+    background-position: center;
+    opacity: .5;
+}
+
+
+.activeroom{
+    flex-grow: 1;
+    transition-duration: 1s;
+    opacity: 1;
+    padding: 0 10px;
+    border-radius: 5px;
+    padding-bottom: 10px
+}
+.nonActive{
+    flex-grow: 0;
+      opacity: .5
+}
+.slideroom:nth-of-type(1){
+    background-image: url('https://i.ibb.co/vvpkHXY/doublebedwbal.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.slideroom:nth-of-type(2){
+    background-image: url("https://i.ibb.co/mzrqptm/stairs.jpg");
+}
+.slideroom:nth-of-type(3){
+    background-image: url("https://i.ibb.co/cNfCCP3/withbalcony.jpg");
+}
+.slideroom:nth-of-type(4){
+    background-image: url("https://i.ibb.co/XZZHQ2r/terrace.jpg");
+}
+.slideroom:nth-of-type(5){
+    background-image: url("https://i.ibb.co/9tz7KW4/hallway.jpg");
+}
+.slideroom:nth-of-type(6){
+    background-image: url("https://i.ibb.co/k91zQ9m/4.jpg");
+}
+
+@media screen and (max-width: 700px) {
+    .slideroom{
+        width: 20px;
+    }
+    .activeroom{
+        border-radius: 10px
+    }
+}
+
+
+@media (max-width: 480px){
+    .slideroom{
+        width: 0.5px;
+        padding: 0;
+        margin: 0.7px;
+    }
+    .activeroom{
+        border-radius: 5px
+    }
+  }
