@@ -16,7 +16,7 @@ function Footer(){
                 <h3>Contact information</h3>
                 <p class="lead">Ramanand Chowk, JanakpurDham-08, Dhanusha,Nepal</p>
                 <p class="lead">Tell.No.:977-41-591317</p>
-                <p class="lead">Mobile No.:977-9844024543/9840149464</p>
+                <p class="lead">Mobile No.:977-9765263291/977-9840149464</p>
 
                 <p><a href="#">Email:janakpurinnhna2079@gmail.com</a></p>
             </div>
@@ -24,6 +24,8 @@ function Footer(){
                 <ul class="list-inline f-social">
                     <li class="list-inline-item"><a href="https://www.facebook.com/Hotel-janakpurinn-102206752556362" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                     <li class="list-inline-item"><a href="https://www.instagram.com/hoteljanakpurinn/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li class="list-inline-item"><a href="http://wa.me/9779810685891" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                    
                 </ul>
             </div>
         </div>

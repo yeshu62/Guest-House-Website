@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useRef,Component} from 'react';
 import emailjs from '@emailjs/browser';
-
+import swal from '@sweetalert/with-react'
 
 function ContactUs(){
 
@@ -12,12 +12,19 @@ function ContactUs(){
       
         emailjs.sendForm('service_43xmhgt', 'template_b32nurf', form.current, 'p87AIKhlpzHzrnl46')
           .then((result) => {
+            swal("Your feedback has been received", "Thank you 😃", "success").then((confirmed) => {
+                if(confirmed){
+                  window.location.href="http://janakpurinn.com";
+                }
+                }
+                 
+                )
+
               console.log(result.text);
           }, (error) => {
               console.log(error.text);
           });
-          e.target.reset();
-          alert("Successfully sent!");
+         
       };
 
 
@@ -59,7 +66,12 @@ function ContactUs(){
                             <h4>Contact Info</h4>
                             <div class="d-flex info_single align-items-center">
                                 <i class="fas fa-headset"></i>
-                                <span>+977 41-591317</span>
+                                <span>+977 41-591317, 9840149464</span>
+                                
+                            </div>
+                            <div class="d-flex info_single align-items-center">
+                            <a href="http://wa.me/9779810685891" target="_blank"><i class="fa fa-whatsapp" style={{color: "#fff"}} aria-hidden="true"></i></a>
+                                <span>+977 9810685891</span>
                             </div>
                             <div class="d-flex info_single align-items-center">
                                 <i class="fas fa-envelope-open-text"></i>

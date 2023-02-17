@@ -2,29 +2,33 @@ import React,{useState,useEffect,useRef,Component} from 'react';
 import emailjs from '@emailjs/browser';
 import Slider from './Slider';
 import {useParams} from 'react-router';
+import { useLocation } from 'react-router-dom'
 
+import swal from '@sweetalert/with-react'
+
+import ReCAPTCHA from "react-google-recaptcha";
  
+import {Link} from 'react-router-dom';
 
 function Book(){
 
-const {cin,cout,NOP} = useParams();
-
-console.log({cin,cout,NOP});
+const location = useLocation();
+const data = location.state;
+console.log(data);
 
   const form = useRef();
 
+  const[verified,setVerified]=useState(false);
+
+  function handleThis(e){
+  
+    setVerified(true)
+  
+  }
 
 
-
-  const [checkIn,setCheckIn]=useState(cin);
-  const [checkout,setCheckout]=useState(cout);
-  const [nop,setnop]=useState(NOP);
-
-  const [title,settitle]=useState("");
   const [fname,setFname]=useState("");
   const [lname,setlname]=useState("");
-  const [room,setroom]=useState("");
-  const [country,setcountry]=useState("");
   const [phone,setphone]=useState("");
   const [email,setemail]=useState("");
 
@@ -36,19 +40,32 @@ console.log({cin,cout,NOP});
 // }
 
 
-const sendEmail = (e) => {
-  e.preventDefault();
 
 
-  emailjs.sendForm('service_43xmhgt', 'template_srzismx', form.current, 'p87AIKhlpzHzrnl46')
-    .then((result) => {
-        console.log(result.text);
-    }, (error) => {
-        console.log(error.text);
-    });
+const handleSubmit = (e) => {
+  // e.preventDefault();
+
+
+
+  // if(verified){
     
-    e.target.reset();
-    alert("Thank you! You will be contacted shortly");
+  // emailjs.sendForm('service_43xmhgt', 'template_srzismx', form.current, 'p87AIKhlpzHzrnl46')
+  //   .then((result) => {
+  //       console.log(result.text);
+  //   }, (error) => {
+  //       console.log(error.text);
+  //   });
+    
+   
+
+    // swal("Your booking request has been placed!", `We will contact you shortly`, "success")
+
+  // }
+
+  // else{
+  //   e.target.reset();
+  //   swal("Check capcha and try again lol", `...`, "error")  
+  // }
     
 };
 
@@ -65,15 +82,14 @@ const sendEmail = (e) => {
 <div class="containerForm">
   <h1>Personal Details*</h1>
 
-  <form ref={form} onSubmit={sendEmail}>
-
+  <form  onSubmit={handleSubmit}>
   <div class="row">
       <div class="col-25">
         <label for="Title">Title</label>
       </div>
       <div class="col-75">
         <select id="Title" name="title"  onChange={function(e){
-                 settitle(e.target.value)
+                 
              }}>
 
              <option selected hidden value="0">Choose..</option>
@@ -136,7 +152,7 @@ const sendEmail = (e) => {
       </div>
       <div class="col-75">
         <select id="country" name="country" required  onChange={function(e){
-                 setcountry(e.target.value)
+                 
              }}>
           <option selected hidden value="0">Choose..</option>
           <option value="Nepal">Nepal</option>
@@ -146,7 +162,8 @@ const sendEmail = (e) => {
     </div>
     </div>
     <br/>
-    <h1>Room Details*</h1>
+
+    {/* <h1>Room Details*</h1>
 
   <div class="row">
       <div class="col-25">
@@ -164,7 +181,7 @@ const sendEmail = (e) => {
           <option value="5">Single Double bed Standard room with A/C</option>
           <option value="6">Single single bed room NON-A/C</option>
           <option value="7">Double single bed room NON-A/C</option>
-          <option value="8  ">Triple single bed room NON-A/C</option>
+          <option value="8  ">Triple single bed room NON-A/C</option> 
         </select>
       </div>
       </div>
@@ -174,7 +191,7 @@ const sendEmail = (e) => {
         <label for="CheckIn">Check In</label>
       </div>
       <div class="col-75">
-        <input type="date" name="cin" defaultValue={checkIn} required onChange={function(e){
+        <input type="date" name="cin" defaultValue={checkIn}  min={new Date().toISOString().split('T')[0]} required onChange={function(e){
                  setCheckIn(e.target.value)
              }} />
       </div>
@@ -186,7 +203,7 @@ const sendEmail = (e) => {
         <label for="CheckOut">Check Out</label>
       </div>
       <div class="col-75">
-        <input type="date" id="checkout" name="cout" defaultValue={checkout} required onChange={function(e){
+        <input type="date" id="checkout" name="cout" min={checkIn} defaultValue={checkout} required onChange={function(e){
                  setCheckout(e.target.value)
              }}/>
       </div>
@@ -212,10 +229,24 @@ const sendEmail = (e) => {
     </div>
     
     <br/>
-    <div class="row">
-    <input type="submit" value="Book now" /></div>
+    
+      <div class="captcha" align="center">
+      <ReCAPTCHA 
+    sitekey="6Lc4PaEiAAAAALeDaAji_7-XCprCfQB804R9_Mkv"
+    onChange={handleThis}
+  />
+      </div>
+   */}
+
+  <div class="row">
+    {/* <input type="submit" value="Book now" disabled={!verified} /> */}
+    <Link to='/confirm' state={{data:data,fname:fname,lname:lname,email:email,phone:phone}} > <input type="submit" value="Next" onClick={handleSubmit}/></Link>
+    
+
+    </div>
+    
     <br/>
-  
+             
 
     </form>
   
@@ -227,6 +258,7 @@ const sendEmail = (e) => {
     </div>
 </div>);
 }
+
 
 export default Book;
 

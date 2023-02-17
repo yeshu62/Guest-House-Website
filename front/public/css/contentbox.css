@@ -5,8 +5,8 @@
   font-family: 'Montserrat', serif;
   background-image: -webkit-linear-gradient(top, 
   rgba(255, 255, 255, 1), 
-  rgba(255, 255, 255, 0.8),
-  rgba(255, 255, 255, 0.8),
+  rgba(255, 255, 255, 0.7),
+  rgba(255, 255, 255, 0.7),
   rgba(253, 253, 253, 1) 
 ), url("https://i.ibb.co/fvHTTcn/bgcontent.jpg");
 
@@ -14,10 +14,45 @@
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
-  margin-top: 50px;
-  margin-bottom: 50px;
+
   padding: 3em;
 }
+
+
+.contentboxx_Restro{
+  font-family: 'Montserrat', serif;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.7), 
+    rgba(0, 0, 0, 0.7)
+  ),
+ url("https://live.staticflickr.com/65535/48841119712_fdaea143e8_b.jpg");
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+
+
+  padding: 3em;
+}
+
+.contentboxx_Restro img{
+  filter: brightness(30%);
+}
+
+.contentboxx_Restro p {
+  
+  text-align: justify;
+  line-height: 1.5em;
+  color: white;
+  z-index: 100;
+  opacity: 1;
+  font-size: 17px;
+ 
+ 
+
+}
+
 
 .contentboxx p {
   
@@ -30,9 +65,25 @@
  
 
 }
+
+
+.fancy1::first-letter {
+  font-family: 'Qwigley', cursive;
+  font-size: 8em;
+  color: rgba(238, 238, 226, 0.8);
+  
+  margin-right: -5px;
+}
+.fancy1::first-line {
+  line-height: 3em;
+}
+
+
+
 .fancy {
     color: dark-gray;
     line-height: 2.5em;
+  
 }
 .fancy::first-letter {
   font-family: 'Qwigley', cursive;

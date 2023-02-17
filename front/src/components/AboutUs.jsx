@@ -4,56 +4,108 @@ function AboutUs(){
     return( <div>
     <section class="about" id="about">
             <div class="container">
-                <div class="heading text-center">
-                    <h2>About
-                        <span>Us</span></h2>
-
-                      
-                    <p>All of our appointed rooms  are modern, spacious and We offer four different categories   Apartments Deluxe, Standard and Non A/C standard room each of which is furnished and designed to meet your comfort requirements
+                <div class="heading">
+                    <h2 style={{"textAlign":"center"}}>How to Reach
+                        <span> Us</span></h2>
+                    <p>Hotel Janakpurinn is fifteen minutes drive from Janakpur airport and railway station. It is one minute walking distance from Ramanand Chowk, Bus stand. Janakpurdham is well connected by airways, railways and bus. Janakpur airport has around 15 daily flights from Kathmandu. 
                     </p>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6">
-                    <img src="https://i.ibb.co/MVfh95T/guests1.png" alt="guests1" class="img-fluid" width="100%"></img>
+                    <div class="col-lg-4">
+                    
+                    <h3>Airways </h3>
+                    <p>The nearest airport in India is Darbhanga airport which is 80 km from Janakpur. It is well connected by public bus and private cars. The international airport in Nepal is Tribhuvan International airport (TIA), Kathmandu. TIA is 230 km from Janakpur. There are around 12-15 daily flights between TIA and Janakpurdham airport and the total flight time is 25 minutes.</p>
+                    <br></br><br></br><img style={{"maxHeight":"150px", "width":"80%"}} src="http://www.nepalflightticketbooking.com/page_gallery/kathmandu-janakpur-flight70.jpg" alt="guests1" class="img-fluid"></img> 
+                  
+
                     </div>
-                    <div class="col-lg-6">
-                        <h3>We await you </h3>
-                        <p>Janakpur Inn Hotel awaits you to offer its warm and friendly
-hospitality. If your choice is comfort and service at a reasonable      
-price, come and let us show you our care for your simple and
-most extravagant desires.</p>
-                        <div class="row">
-                            <div class="col-md-6">
+
+                    <div class="col-lg-4">
+                    
+                    <h3>Railways </h3>
+                    <p>The nearest railway station in India is Jaynagar which is 40km from hotel Janakpurinn. The train timing from Jaynagar to Janakpurdham is 8:30 am and 3:00pm. The train timing from Janakpur to Jaynagar is 11:00am and 5:30pm. The second nearest railway station in India is Sitamarhi railway station which is 52km away from Hotel janakpurinn. Sitamarhi is well connected by bus and private car.</p>
+                    <img style={{"maxHeight":"150px", "width":"80%"}} src="https://www.newbusinessage.com/img/news/20220823112051_1661169484.NepaliRailway.jpg" alt="guests1" class="img-fluid"></img>
+                    </div>
+
+
+                    <div class="col-lg-4">
+                        <h3>Roadways</h3>
+                        <p>From Kathmandu, there are regular buses that travel to Janakpur from New Bus Station or Kalanki Bus Stand. The total journey takes about eight hours with stops for meals. The same journey can also be covered by hiring a private cab for a relatively more comfortable travel experience. From India, the cities of Jayanagar and Sitamarhi are located only 30 and 45 km respectively from Janakpur in Nepal.</p>
+                        
+                        <img style={{"maxHeight":"150px", "width":"80%"}} src="https://4.bp.blogspot.com/-4OzydCpeQTA/WUn-waE-n3I/AAAAAAAAACE/JBPru9bA5uEZ2KnLr5dQ9moCj12D-BsbgCLcBGAs/s1600/Kathmandu-to-Janakpur-bus.jpg" alt="guests1" class="img-fluid"></img>
+                    
+
+                    </div>
+                </div>
+                <br></br>
+                <h3 style={{"textAlign":"center"}}>Our travel services</h3>
+                <br></br>
+                <div class="row">
+                            <div class="col-lg-4">
                                 <h4>
-                                    <i class="far fa-star"></i>Fast Wifi</h4>
+                                    <i class="far fa-star"></i>Janakpur airport pickup or drop</h4>
+                                    <div class="col-lg-12">
+                                <h4>
+                                    <i class="far fa-circle" style={{"fontSize":"10px"}}></i>Alto (4-seater) Price: Nrs. 800</h4>
                             </div>
-                            <div class="col-md-6">
+                            </div>
+                            <div class="col-lg-4">
                                 <h4>
                                     <i class="far fa-star"></i>
-                                    Airport Drop and Pickup</h4>
-                            </div>
-                            <div class="col-md-6">
+                                    Sitamarhi railway station drop</h4>
+                                    <div class="col-lg-12">
+                                    <div class="col-lg-12">
                                 <h4>
-                                    <i class="far fa-star"></i>Daily housekeeping</h4>
+                                    <i class="far fa-circle" style={{"fontSize":"10px"}}></i>Alto (4-seater) price: Nrs. 5,500</h4>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-12">
+                                <h4>
+                                    <i class="far fa-circle" style={{"fontSize":"10px"}}></i>Scorpio (7-seater) price: Nrs. 7,000</h4>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <h4>
+                                    <i class="far fa-star"></i>Jaynagar railway station drop</h4>
+                                    <div class="col-lg-12">
+                                    <div class="col-lg-12">
+                                <h4>
+                                    <i class="far fa-circle" style={{"fontSize":"10px"}}></i>Alto (4-seater) price: Nrs. 4,500</h4>
+                            </div>
+                            <div class="col-lg-12">
+                                <h4>
+                                    <i class="far fa-circle" style={{"fontSize":"10px"}}></i>Scorpio (7-seater) price: Nrs. 6,000</h4>
+                            </div>
+                            </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <h4>
+                                    <i class="far fa-star"></i>Janakpur to Kathmandu by road</h4>
+                                    <div class="col-lg-12">
+                                <h4>
+                                    <i class="far fa-circle" style={{"fontSize":"10px"}}></i>Alto (4-seater) price: Nrs. 13,000</h4>
+                            </div>
+                            <div class="col-lg-12">
+                                <h4>
+                                    <i class="far fa-circle" style={{"fontSize":"10px"}}></i>Scorpio (7-seater) price: Nrs. 18,000</h4>
+                            </div>
+                            </div>
+                            {/* <div class="col-lg-4">
                                 <h4>
                                     <i class="far fa-star"></i>
                                     Air conditioning facilities</h4>
-                            </div>
-                            <div class="col-md-6">
-                                <h4>
-                                    <i class="far fa-star"></i>Smoking Areas</h4>
-                            </div>
-                            <div class="col-md-6">
+                            </div> */}
+                            
+                            {/* <div class="col-lg-4">
                                 <h4>
                                     <i class="far fa-star"></i>
                                     Gym/Fitness</h4>
-                            </div>
+                            </div> */}
                         </div>
-                    </div>
-                </div>
             </div>
+
+            
         </section>
 </div>);
 }

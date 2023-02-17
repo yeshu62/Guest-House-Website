@@ -4,13 +4,10 @@ import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
-
 import {Link} from 'react-router-dom';
 import Axios from "axios";
-
 import {useNavigate} from "react-router-dom";
 
-import Book from './Book';
 
 
 function Slider(){
@@ -20,21 +17,15 @@ function Slider(){
     const [Cout,SetCout]=useState('');
     const [NoP,SetNoP]=useState('');
 
-    const [confirm,setConfirm]=useState(false);
-    const navigate = useNavigate();
-
-
-    const submitBooking = (e) => {
-        e.preventDefault();
-        setConfirm(true);
-        navigate('/Book', {state: Cin});
-      };
 
 
     const [show, setShow] = useState(false);
+    const [showUnav,setShowUnav] = useState(true);
   
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const handleCloseUnav = () => setShowUnav(true); //false this to show full booked
+    const handleShowUnav = () => setShowUnav(false); //true this to show full booked
 
 
     // const submitBooking = function(){
@@ -45,39 +36,58 @@ function Slider(){
 
     return(
     <div id="slides" class="cover-slides">
+
+{/* 
+    <Modal show={showUnav} onHide={handleCloseUnav}>
+          <Modal.Header closeButton>
+            <Modal.Title>Bookings not available!</Modal.Title>
+
+          </Modal.Header>
+          <Modal.Body>
+            We are fully booked till 4th Dec 2022. Please contact us for further queries.
+          </Modal.Body>
+
+          <Modal.Footer>
+            Tell.No.:977-41-591317 <br></br>
+            Mobile No.:977-9765263291/977-9840149464
+          </Modal.Footer>
+          
+          
+        </Modal> */}
+
     <ul class="slides-container">
         <li class="text-center">
-        <img src="https://i.ibb.co/k91zQ9m/4.jpg" alt="4" border="0"></img>
+        <img style={{"filter":"brightness(40%)"}} src="https://i.ibb.co/D9CtStz/4.jpg" alt="4" border="0"></img>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="m-b-20"><strong>Hotel Janakpur Inn</strong></h1>
                         <p class="m-b-40">Feel like home</p>
-                        <p><button class="btn btn-lg btn-circle btn-outline-new-white" onClick={handleShow}>Request a booking</button></p>
+                        <p><button class="btn btn-lg btn-circle btn-outline-new-white" onClick={handleShow} >Request a booking</button></p>
                     </div>
                 </div>
             </div>
         </li>
         <li class="text-center">
-        <img src="https://i.ibb.co/P9qTp0F/doublebedapp2.jpg" alt="doublebedapp2" border="0"></img>
+        <img style={{"filter":"brightness(40%)"}} src="https://i.ibb.co/HdTJFdG/doublebedapp2.jpg" alt="doublebedapp2" border="0"></img>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="m-b-20"><strong>We’re more than just a room</strong></h1>
                         <p class="m-b-40">With us, you’re home</p>
-                        <p><button class="btn btn-lg btn-circle btn-outline-new-white" onClick={handleShow}>Request a Booking</button></p>
+                        <p><button class="btn btn-lg btn-circle btn-outline-new-white" onClick={handleShow} >Request a Booking</button></p>
                     </div>
                 </div>``
             </div>
         </li>
         <li class="text-center">
-        <img src="https://i.ibb.co/xLrvTRr/2.jpg" alt="2" border="0"></img>
+        <img style={{"filter":"brightness(40%)"}} src="https://i.ibb.co/tBchncL/2.jpg" alt="2" border="0"></img>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="m-b-20"><strong>Your pleasure is our principle</strong></h1>
                         <p class="m-b-40">A warm welcome awaits</p>
-                        <p><a class="btn btn-lg btn-circle btn-outline-new-white" onClick={handleShow}>Request a booking</a></p>
+                        <p><a class="btn btn-lg btn-circle btn-outline-new-white" onClick={handleShow} >Request a booking</a></p>
                     </div>
                 </div>
             </div>
@@ -95,17 +105,33 @@ function Slider(){
           </Modal.Header>
           <Modal.Body> 
           <Form>
+          
              <Row>
              <Col><Form.Label>Check-In</Form.Label>
-             <Form.Control type='Date' placeholder="Date" name="Cin" onChange={function(e){
-                 SetCin(e.target.value)
-             }} /></Col>
+             <Form.Control type='Date' placeholder="dd-mm-yyyy" min={new Date().toISOString().split('T')[0]} name="Cin" required onChange={function(e){
+               const cin = e.target.value;
+                 SetCin(cin)
+              
+
+             }}  /></Col>
              </Row>
              <br></br>
              <Row>
              <Col><Form.Label>Check-Out</Form.Label>
-             <Form.Control type='Date' placeholder="Date" name="Cout" onChange={function(e){
-                 SetCout(e.target.value)
+             <Form.Control type='Date' id="ccout" min={Cin} placeholder="dd-mm-yyyy" name="Cout" onChange={function(e){
+                // const cout = e.target.value;
+                // if(Cin<cout)
+                //   {  
+                // SetCout(cout)
+                //   }
+
+                //   else{
+                //     alert("Checkout date cannot be before CheckIn date");
+                //     document.getElementById("ccout").value="";
+                    
+                //   }
+
+                SetCout(e.target.value)
              }} /></Col>
              </Row>
              <br></br>
@@ -118,7 +144,7 @@ function Slider(){
     custom
     name="NoP" onChange={function(e){
                  SetNoP(e.target.value)
-    }}
+    }} 
   >
     <option value="0">Choose...</option>
     <option value="1">1</option>
@@ -135,9 +161,9 @@ function Slider(){
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Link to='/Book' onClick={() => window.location.href="/Book/"+Cin+"/"+Cout+"/"+NoP}>
+            <Link to='/rooms' state={{State1:Cin,State2:Cout}}>
             <Button variant="primary" onClick={function(){
-                submitBooking();
+                
             }}>
                 Book Now!
               
@@ -147,8 +173,6 @@ function Slider(){
           </Modal.Body>
           
         </Modal>
-
-        <Book data="xx"/>
 
             
     </div>

@@ -2,14 +2,17 @@ import React from "react";
 import NavBar from "./NavBar";
 import Slider from "./Slider";
 import Gallery from "./Gallery";
-import Reviews from "./Reviews";
+import Abt from "./Abt";
+import Confirm from "./Confirm";
+import Menu from "./Menu";
 import Footer from "./Footer";
 import Book from "./Book";
 import AboutUs from "./AboutUs";
-import Room from "./Room";
+import Resturant from "./Resturant";
 import ContactUs from "./ContactUs";
-import Try from "./Try";
-import NewRoom from "./NewRoom";
+
+import Policy from "./Policy";
+import Store from "./Store";
 import Map from "./Map";
 import RoomDesc from "./RoomDesc";
 import Testimonials from "./Testimonials";
@@ -23,196 +26,182 @@ import Allrevs from "./Allrevs";
 function App() {
   return (
     <div>
-      <Router>
+    <Router>
      
     <Routes>
-    <Route path="/">
-    <div>
-    <NavBar/>
-    <Slider/>
-    <ContentBox/>
-      <RoomDesc/>
-      <Map/>
-      <Testimonials/>
-     
-         
-      <Footer/>
-      </div>
-  
-      </Route>
-    </Routes>
-    
-    <Routes>
-      <Route path="/gallery">   
-      <div><NavBar/>  
-      <Gallery/>
-       
-      <Footer/></div>
-      
-      </Route> 
-    </Routes> 
+    <Route
+  path="/store"
+  element={
  
-    </Router>
-
-
+    <div><NavBar/><Store/><Footer/></div>
   
+  }
+/>
 
-    <Router>
-    <Routes>
-        <Route path="/home">
-        <div>
-        <NavBar/>
+
+
+<Route
+  path="/confirm"
+  element={
+ 
+    <div><NavBar/>
+        <Confirm/>
+      <Footer /></div>
+  
+  }
+/>
+
+
+<Route
+  path="/resturant"
+  element={
+ 
+    <div><NavBar/>
+        <Resturant/>
+        <Menu/>
+      <Footer /></div>
+  
+  }
+/>
+
+
+
+<Route
+  path="/menu"
+  element={
+ 
+    <div><NavBar/>
+        <Menu/>
+      <Footer /></div>
+  
+  }
+/>
+
+<Route
+  path="/"
+  element={
+ 
+    <div><NavBar/>
     <Slider/>
     <ContentBox/>
-      <RoomDesc/>
-      <Map/>
-      <Testimonials/>
-      
-         
-      <Footer/>
-      </div>
-        </Route>
-      </Routes>
-
-    </Router>
-
-    <Router>
-    <Routes>
-        <Route path="/Book/:cin/:cout/:NOP">
-        <div>
-        <NavBar/>  
-        <Book/>
-        <Footer/>
-        </div>
-        
-        </Route>
-      </Routes>
-    </Router>
-
-    <Router>
-    <Routes>
-        <Route path="/Book///">
-        <div>
-        <NavBar/>  
-        <Book/>
-        <Footer/>
-        </div>
-        
-        </Route>
-      </Routes>
-    </Router>
-
-
-    <Router>
-    <Routes>
-        <Route path="/Book">
-        <div>
-        <NavBar/>  
-        <Book/>
-  
-        <Footer/>
-        </div>
-        
-        </Route>
-      </Routes>
-
-    </Router>
-
-
-    <Router>
-    <Routes>
-        <Route path="/about">
-        <div>
-        <NavBar/>
-          <AboutUs/>
-          <Footer/>
-        </div>
-          
-
-        </Route>
-      </Routes>
-
-    </Router>
-
-
-
     
-    <Router>
-    <Routes>
-        <Route path="/rooms">
-        <div>
-        <NavBar/>
-       <Rooom/>
-       <Footer/>
-        </div>
-          
-
-        </Route>
-      </Routes>
-
-    </Router>
+    <Testimonials/>
+    <Footer /></div>
+  
+  }
+/>
 
 
-    <Router>
-    <Routes>
-        <Route path="/contactus">
-        <div>
-          <NavBar/>
-          <ContactUs/>
-          <Footer/>
-         
-        </div>
-          
-
-        </Route>
-      </Routes>
-
-    </Router>
+<Route
+  path="/aboutUs"
+  element={
+ 
+    <div><NavBar/>
+        <Abt/>
+      <Footer /></div>
+  
+  }
+/>
 
 
-    <Router>
-    <Routes>
-        <Route path="/map">
-        <div>
-          <NavBar/>
-          <Map/>
-          <Footer/>
-         
-        </div>
+<Route
+  path="/home"
+  element={
+ 
+    <div><NavBar/>
+    <Slider/>
+    <ContentBox/>
+    
+    <Testimonials/>
+    <Footer /></div>
+  
+  }
+/>
 
-        </Route>
-      </Routes>
-
-    </Router>
-
-
-
-
-    <Router>
-    <Routes>
-        <Route path="/tariff">
-        <div>
-        <NavBar/>
-          <Tariff/>
-          <Footer/>
-        </div>
-        
-        </Route>
-      </Routes>
-
-    </Router>
+<Route
+  path="/policy"
+  element={
+ 
+    <div><NavBar/>
+    <Policy/>
+    <Footer /></div>
+  
+  }
+/>
 
 
-    <Router>
-    <Routes>
-        <Route path="/morereviews">
-        <div>
-        <NavBar/>
-         <Allrevs/>
-          <Footer/>
-        </div>
-        
-        </Route>
+<Route
+  path="/rooms"
+  element={
+    <div><NavBar/>
+    <Rooom/>
+      <Footer /></div>
+  }
+/>
+
+<Route
+  path="/Book"
+  element={
+    <div><NavBar/>
+    <Book/>
+      <Footer /></div>
+  }
+/>
+
+<Route
+  path="/morereviews"
+  element={
+    <div><NavBar/>
+    <Allrevs/>
+      <Footer /></div>
+  }
+/>
+
+<Route
+  path="/about"
+  element={
+    <div><NavBar/>
+    <AboutUs/>
+      <Footer /></div>
+  }
+/>
+
+<Route
+  path="/map"
+  element={
+    <div><NavBar/>
+    <Map/>
+      <Footer /></div>
+  }
+/>
+
+<Route
+  path="/gallery"
+  element={
+    <div><NavBar/>
+    <Gallery/>
+      <Footer /></div>
+  }
+/>
+
+<Route
+  path="/tariff"
+  element={
+    <div><NavBar/>
+    <Tariff/>
+      <Footer /></div>
+  }
+/>
+
+<Route
+  path="/contactus"
+  element={
+    <div><NavBar/>
+    <ContactUs/>
+      <Footer /></div>
+  }
+/>
+       
       </Routes>
 
     </Router>

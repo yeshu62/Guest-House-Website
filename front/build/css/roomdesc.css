@@ -48,10 +48,10 @@
     background-repeat: no-repeat;
 }
 .slideroom:nth-of-type(2){
-    background-image: url("https://i.ibb.co/mzrqptm/stairs.jpg");
+    background-image: url("https://i.ibb.co/ZYPtKjL/outside.jpg");
 }
 .slideroom:nth-of-type(3){
-    background-image: url("https://i.ibb.co/cNfCCP3/withbalcony.jpg");
+    background-image: url("https://i.ibb.co/cgnCqs3/balcony.jpg");
 }
 .slideroom:nth-of-type(4){
     background-image: url("https://i.ibb.co/XZZHQ2r/terrace.jpg");
@@ -60,7 +60,7 @@
     background-image: url("https://i.ibb.co/9tz7KW4/hallway.jpg");
 }
 .slideroom:nth-of-type(6){
-    background-image: url("https://i.ibb.co/k91zQ9m/4.jpg");
+    background-image: url("https://i.ibb.co/Bq28Rjf/4-1.jpg");
 }
 
 @media screen and (max-width: 700px) {
